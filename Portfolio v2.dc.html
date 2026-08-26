@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #F7F2E7; -webkit-font-smoothing: antialiased; }
+  a { color: #1E1810; text-decoration: none; }
+  a:hover { color: #C4552F; }
+  ::selection { background: #C4552F; color: #F7F2E7; }
+</style>
+</helmet>
+<div style="--accent: {{ accent }}; background: #F7F2E7; color: #1E1810; font-family: 'Noto Sans TC', system-ui, sans-serif; font-weight: 300; min-height: 100vh;">
+
+  <header style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 48px; border-bottom: 1px solid #E4D9C6; position: sticky; top: 0; background: rgba(247,242,231,0.94); backdrop-filter: blur(8px); z-index: 5;">
+    <a href="#top" style="font-family: 'Noto Sans TC', sans-serif; font-weight: 700; font-size: 18px;"><span style="font-family: 'IBM Plex Mono', monospace; font-weight: 400; font-size: 13px; color: #9C907C;">Peggy</span></a>
+    <nav style="display: flex; gap: 26px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em;">
+      <a href="#work" onClick="{{ goHome }}" style-hover="color: var(--accent, #C4552F)">作品</a>
+      <a href="#experience" style-hover="color: var(--accent, #C4552F)">經歷</a>
+      <a href="#contact" style-hover="color: var(--accent, #C4552F)">聯絡</a>
+    </nav>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <section id="top" style="padding: 96px 48px 80px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 56px; align-items: end; border-bottom: 1px solid #E4D9C6;">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--accent, #C4552F); text-transform: uppercase;">Graphic &amp; E-commerce Visual Designer</div>
+      <h1 style="margin: 0; font-family: 'Noto Sans TC', sans-serif; font-weight: 700; font-size: 66px; line-height: 1.18; letter-spacing: -0.01em; text-wrap: pretty;">從商品拍攝到<br>上架的整段視覺。</h1>
+      <p style="margin: 0; max-width: 42ch; font-size: 17px; line-height: 1.85; color: #6B6153; text-wrap: pretty;">平面視覺、電商圖文、商品攝影與影片後製。六年在門市檔期與電商平台之間，習慣一個人把企劃、拍攝、設計到上架做完。</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; padding-top: 4px;">
+        <sc-for list="{{ skills }}" as="s" hint-placeholder-count="5">
+          <span style="border: 1px solid #E4D9C6; background: #F2EBDB; padding: 6px 12px; font-size: 13px;">{{ s }}</span>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="aspect-ratio: 1; background-color: #EDE4D3; background-image: repeating-linear-gradient(45deg, rgba(30,24,16,0.06) 0 1px, transparent 1px 9px); display: flex; align-items: flex-end; padding: 14px; box-sizing: border-box;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9C907C;">portrait 1:1</span>
+      </div>
+      <dl style="margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
+        <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #E4D9C6; padding-bottom: 8px;">
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #9C907C;">LOCATION</dt>
+          <dd style="margin: 0;">高雄市</dd>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #E4D9C6; padding-bottom: 8px;">
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #9C907C;">MAIL</dt>
+          <dd style="margin: 0;"><a href="mailto:hsps954103@gmail.com" style="border-bottom: 1px solid #E4D9C6;">hsps954103@gmail.com</a></dd>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px;">
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #9C907C;">EDU</dt>
+          <dd style="margin: 0; text-align: right; line-height: 1.6;">數位多媒體系</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="work" style="padding: 64px 48px 88px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 24px;">
+      <h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9C907C;">Work — 五個類別</h2>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #9C907C;">05</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 44px 36px;">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="5">
+        <article style="display: flex; flex-direction: column; gap: 16px; cursor: pointer;" onClick="{{ c.open }}">
+          <div style="{{ c.thumbStyle }}">
+            <sc-if value="{{ c.noThumb }}" hint-placeholder-val="{{ true }}">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #9C907C;">{{ c.slot }}</span>
+            </sc-if>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 14px;">
+              <h3 style="margin: 0; font-family: 'Noto Sans TC', sans-serif; font-weight: 500; font-size: 24px;">{{ c.title }}</h3>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9C907C;">{{ c.count }}</span>
+            </div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.8; color: #6B6153; max-width: 46ch;">{{ c.blurb }}</p>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent, #C4552F); padding-top: 4px;">查看作品 →</span>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="experience" style="padding: 80px 48px; border-top: 1px solid #E4D9C6;">
+    <h2 style="margin: 0 0 40px; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9C907C;">Experience</h2>
+    <div style="display: flex; flex-direction: column;">
+      <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="3">
+        <div style="display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 40px; padding: 30px 0; border-top: 1px solid #E4D9C6;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent, #C4552F);">{{ j.period }}</span>
+            <span style="font-size: 14px; color: #9C907C;">{{ j.company }}</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <h3 style="margin: 0; font-family: 'Noto Sans TC', sans-serif; font-weight: 500; font-size: 26px;">{{ j.role }}</h3>
+            <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px 32px;">
+              <sc-for list="{{ j.duties }}" as="d" hint-placeholder-count="4">
+                <li style="font-size: 15px; line-height: 1.75; color: #6B6153; border-left: 1px solid #E4D9C6; padding-left: 14px;">{{ d }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+  <section style="padding: 40px 48px 88px;">
+    <button type="button" onClick="{{ goHome }}" style="border: 1px solid #E4D9C6; background: #F2EBDB; color: #1E1810; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; padding: 8px 14px; cursor: pointer;" style-hover="border-color: var(--accent, #C4552F); color: var(--accent, #C4552F)">← 所有類別</button>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 56px; align-items: end; padding: 48px 0 40px; border-bottom: 1px solid #E4D9C6;">
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--accent, #C4552F);">{{ current.count }} — CATEGORY</span>
+        <h1 style="margin: 0; font-family: 'Noto Sans TC', sans-serif; font-weight: 700; font-size: 58px; line-height: 1.2; letter-spacing: -0.01em;">{{ current.title }}</h1>
+        <p style="margin: 0; max-width: 44ch; font-size: 17px; line-height: 1.85; color: #6B6153; text-wrap: pretty;">{{ current.note }}</p>
+      </div>
+      <dl style="margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
+        <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #E4D9C6; padding-bottom: 8px;">
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #9C907C;">TOOLS</dt>
+          <dd style="margin: 0; text-align: right;">{{ current.tools }}</dd>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px;">
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #9C907C;">SCOPE</dt>
+          <dd style="margin: 0; text-align: right;">{{ current.scope }}</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 40px;">
+      <sc-if value="{{ current.showHero }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ current.heroStyle }}">
+          <sc-if value="{{ current.noHero }}" hint-placeholder-val="{{ false }}">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #9C907C;">{{ current.heroSlot }}</span>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; padding-top: 32px;">
+      <sc-for list="{{ currentItems }}" as="it" hint-placeholder-count="4">
+        <figure style="{{ it.figStyle }}">
+          <a href="{{ it.href }}" target="_blank" rel="noopener" style="display: block;">
+            <div style="{{ it.imgStyle }}">
+              {{ it.videoEl }}
+              <sc-if value="{{ it.isYt }}" hint-placeholder-val="{{ false }}">
+                <span style="width: 54px; height: 54px; border-radius: 50%; background: rgba(30,24,16,0.72); color: #F7F2E7; display: flex; align-items: center; justify-content: center; font-size: 18px; padding-left: 3px;">▶</span>
+              </sc-if>
+              <sc-if value="{{ it.noImg }}" hint-placeholder-val="{{ true }}">
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9C907C;">image slot</span>
+              </sc-if>
+            </div>
+          </a>
+          <figcaption style="font-size: 14px; line-height: 1.65; color: #6B6153;">{{ it.caption }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-top: 56px; padding-top: 28px; border-top: 1px solid #E4D9C6;">
+      <button type="button" onClick="{{ goHome }}" style="border: none; background: none; padding: 0; color: #9C907C; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; cursor: pointer;" style-hover="color: var(--accent, #C4552F)">← 返回作品總覽</button>
+      <button type="button" onClick="{{ goNext }}" style="border: none; background: none; padding: 0; color: #1E1810; font-family: 'Noto Sans TC', sans-serif; font-size: 20px; cursor: pointer;" style-hover="color: var(--accent, #C4552F)">下一個類別：{{ nextTitle }} →</button>
+    </div>
+  </section>
+  </sc-if>
+
+  <footer id="contact" style="padding: 80px 48px 48px; border-top: 1px solid #E4D9C6; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9C907C;">Contact</span>
+      <a href="mailto:hsps954103@gmail.com" style="font-family: 'Noto Sans TC', sans-serif; font-size: 42px; line-height: 1.25; border-bottom: 1px solid #E4D9C6; padding-bottom: 10px;" style-hover="color: var(--accent, #C4552F); border-bottom-color: var(--accent, #C4552F)">hsps954103@gmail.com</a>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #9C907C;">
+      <span>此處作品僅供交流展示，不作商業用途</span>
+      <span>© 2026 Peggy</span>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C4552F&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#C4552F&quot;,&quot;#B87333&quot;,&quot;#A8562B&quot;,&quot;#8C6A3F&quot;],&quot;section&quot;:&quot;外觀&quot;}}">
+class Component extends DCLogic {
+  state = { view: null };
+
+  go(i) {
+    this.setState({ view: i });
+    if (typeof window !== "undefined") window.scrollTo(0, 0);
+  }
+
+  videoRef = (el) => {
+    if (!el) return;
+    if (!this._io) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          const v = e.target;
+          if (e.isIntersecting) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+          else v.pause();
+        });
+      }, { threshold: 0.4 });
+    }
+    this._io.observe(el);
+  };
+
+  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+
+  renderVals() {
+    const cats = [
+      { title: "平面視覺設計", count: "01", slot: "poster — 節慶檔期海報", blurb: "門市節慶檔期海報、印刷商品與門市形象廣告外觀規劃。",
+        heroSlot: "main visual — 主視覺海報 A2", tools: "Illustrator／Photoshop", scope: "海報、印刷品、門市外觀",
+        note: "檔期主視覺從草稿到印刷打樣都由我負責，包含估價與廠商溝通。",
+        heroImg: "uploads/平面設計2-01.jpg", heroAspect: "3747 / 2032",
+        thumb: "uploads/海報設計.jpg",
+        items: [
+          { src: "uploads/平面設計4-01.jpg", aspect: "3747 / 2032", wide: true, caption: "慶讚中元 — 普渡系列海報" },
+          { src: "uploads/平面設計3-01.jpg", aspect: "3747 / 2032", wide: true, caption: "炮紅豆餅 — 門市價目表與促銷海報" },
+          { src: "uploads/平面設計-04.jpg", aspect: "1241 / 1755", caption: "三寶司證明封袋 — 單品主視覺" },
+          { src: "uploads/平面設計-05.jpg", aspect: "1241 / 1755", caption: "鼎級老山香 — 特價主視覺" },
+          { src: "uploads/海報設計.jpg", aspect: "632 / 577", caption: "門市立牌 — 瑤池金母聖誕與沉香 500" },
+          { src: "uploads/pasted-1787665484249-0.png", aspect: "1009 / 587", wide: true, caption: "鳳農店門市外觀 — PVC＋中空板窗面" }
+        ] },
+      { title: "電商圖文設計", count: "02", slot: "detail page — 一頁式圖文", blurb: "商品詳情頁與一頁式圖文，含平台上下架與商品維護。",
+        heroSlot: "detail page — 一頁式圖文全頁", tools: "Photoshop／91APP", scope: "詳情頁、活動頁、商品維護",
+        note: "與業務討論每月更新規劃，圖文從拍攝素材直接接手排版並上架。",
+        items: ["商品詳情頁 — 長圖", "活動主圖 — 首頁 Banner", "規格說明 — 圖表區塊", "上架縮圖 — 一致性規範"] },
+      { title: "影音多媒體", count: "03", slot: "video still — 影片後製", blurb: "影片企劃、剪輯與後製，含商品動畫設計。",
+        heroSlot: "video still — 影片首格 16:9", tools: "Premiere Pro／After Effects", scope: "企劃、剪輯、動態圖形",
+        note: "從腳本、拍攝到後製字卡與動畫，多數專案為一人作業。品牌檔期影片與商品操作說明影片皆由我企劃、剪輯與後製。",
+        hideHero: true,
+        items: [
+          { yt: "5a_deRbfJO4", caption: "富山檀香｜中元節" },
+          { yt: "dXweczt7hlg", caption: "富山檀香｜福牛迎春" },
+          { yt: "QVpzg6on6xA", caption: "富山檀香｜新品上市 立香精選體驗篇" },
+          { yt: "AbsHjlXAx2c", caption: "富山檀香｜酒精噴買 3 送 1" },
+          { yt: "iCEBpccbvHY", caption: "富山檀香｜天上聖母聖誕" },
+          { yt: "Zdwk4uI4TJs", caption: "富山檀香｜玉皇上帝萬壽" },
+          { yt: "orOGECqCqMs", caption: "元山 免安裝雙濾心溫熱淨飲機 YS-8133RW｜簡易操作說明" },
+          { yt: "FmVMDyNzRMw", caption: "元山 5L 大容量智能溫控熱水瓶 YS-5505APT｜簡易操作說明" },
+          { yt: "YVJtFWw9EkE", caption: "元山 觸控濾淨溫熱開飲機 YS-8628DW｜首次清洗教學" },
+          { yt: "uz26nfxla7k", caption: "元山 4 人份厚釜微電腦電子鍋 YS-5041RCM｜簡易操作說明" },
+          { yt: "L5k0RsZrc4U", caption: "元山 蒸汽式溫熱開飲機 YS-8387DW｜首次清洗教學" },
+          { yt: "Bb9bXRmLoPc", caption: "元山 5.0L 顯溫熱水瓶 YS-5508AP｜功能說明" },
+          { yt: "saeGxgNTUl4", caption: "元山 14 吋 DC 扇 YS-1405SFD｜簡易操作說明" },
+          { yt: "rifofQyoCEE", caption: "元山 免安裝 RO 調溫淨飲機 YS-8103RWT｜簡易操作說明" },
+          { yt: "hqOJj2-4dEc", caption: "元山 免安裝 RO 溫熱飲水機 YS-8105RWF｜簡易操作說明" }
+        ] },
+      { title: "商品攝影", count: "04", slot: "product photo — 情境拍攝", blurb: "新品情境拍照與商品棚拍，供電商與社群使用。",
+        heroSlot: "product photo — 情境主圖", tools: "棚拍燈組／Lightroom", scope: "情境、白底、細節特寫",
+        note: "自行搭景與打光，同一批素材同時供詳情頁、社群與影片使用。",
+        items: ["情境照 — 生活場景", "白底商品 — 電商規格", "細節特寫 — 材質質感", "組合陳列 — 系列全品"] },
+      { title: "行銷社群", count: "05", slot: "social grid — 貼文九宮格", blurb: "Facebook 粉專與 LINE@ 的圖文排版與經營。",
+        heroSlot: "social grid — 貼文九宮格", tools: "Photoshop／Meta 商業管理平台", scope: "貼文設計、文案排版、經營",
+        note: "固定節奏產出貼文與活動圖，同步維護 LINE@ 圖文選單。",
+        items: ["粉專貼文 — 系列版型", "活動圖 — 抽獎貼文", "LINE@ — 圖文選單", "限時動態 — 直式版位"] }
+    ];
+    const stripe = "background-color: #EDE4D3; background-image: repeating-linear-gradient(45deg, rgba(30,24,16,0.06) 0 1px, transparent 1px 9px);";
+    const photo = (src, aspect) => `width: 100%; aspect-ratio: ${aspect}; background-color: #EDE4D3; background-image: url("${encodeURI(src)}"); background-size: cover; background-position: center;`;
+    const norm = cats.map((c) => Object.assign({}, c, {
+      items: c.items.map((raw) => {
+        const it = typeof raw === "string" ? { src: null, caption: raw } : raw;
+        return {
+          caption: it.caption,
+          noImg: !it.src && !it.video && !it.yt,
+          isYt: !!it.yt,
+          href: it.yt ? `https://www.youtube.com/watch?v=${it.yt}` : undefined,
+          videoEl: it.video
+            ? React.createElement("video", {
+                src: encodeURI(it.video), controls: true, preload: "metadata", playsInline: true,
+                muted: true, loop: true, ref: this.videoRef,
+                style: { width: "100%", display: "block", background: "#1E1810" }
+              })
+            : null,
+          figStyle: `margin: 0; display: flex; flex-direction: column; gap: 10px; grid-column: span ${it.wide ? 2 : 1};`,
+          imgStyle: it.video
+            ? "background: #1E1810;"
+            : it.yt
+            ? photo(`https://img.youtube.com/vi/${it.yt}/hqdefault.jpg`, "16 / 9") + " display: flex; align-items: center; justify-content: center;"
+            : it.src
+              ? photo(it.src, it.aspect || "4 / 3")
+              : `aspect-ratio: 4 / 3; ${stripe} display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box;`
+        };
+      }),
+      thumbStyle: c.thumb
+        ? photo(c.thumb, "4 / 3")
+        : `aspect-ratio: 4 / 3; ${stripe} display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box;`,
+      heroStyle: c.heroImg
+        ? photo(c.heroImg, c.heroAspect || "16 / 9")
+        : `aspect-ratio: 16 / 9; ${stripe} display: flex; align-items: flex-end; padding: 20px; box-sizing: border-box;`,
+      noThumb: !c.thumb,
+      noHero: !c.heroImg,
+      showHero: !c.hideHero
+    }));
+    const v = this.state.view;
+    const current = v === null ? null : norm[v];
+    return {
+      accent: this.props.accentColor ?? "#C4552F",
+      isHome: v === null,
+      isDetail: v !== null,
+      current,
+      currentItems: current ? current.items : [],
+      goHome: () => this.go(null),
+      goNext: () => this.go((v + 1) % cats.length),
+      nextTitle: current ? norm[(v + 1) % norm.length].title : "",
+      cats: norm.map((c, i) => Object.assign({}, c, { open: () => this.go(i) })),
+      skills: ["平面視覺設計", "電商圖文設計", "商品攝影", "影音剪輯", "社群經營"],
+      jobs: [
+        { period: "2023/01 — 在職中", company: "元山科技工業股份有限公司", role: "美編專員", duties: ["電商平台視覺設計，與業務討論，每月更新規劃設計。", "商品攝影剪輯／影片企劃、影片後製作業規畫、執行。", "情境攝影、電商詳情頁設計。", "電商線上客服回覆／打單／出貨。"] },
+        { period: "2022/05 — 2022/07", company: "嘉豐海洋股份有限公司", role: "網路行銷專員", duties: ["91APP 官網商品上下架，電商平台商品維護與管理，訂單接單、出貨。", "商品圖文介紹設計、影片剪輯等作業規畫、執行。", "新品情境拍照、一頁式電商圖文設計。", "社群臉書粉專、LINE@ 經營圖文設計。"] },
+        { period: "2019/06 — 2022/04", company: "富山檀香股份有限公司", role: "美工設計助理", duties: ["門市節慶檔期海報設計。", "影片剪輯、商品攝影、動畫設計。", "社群經營、圖文排版。", "門市形象廣告外觀規劃。", "印刷商品設計、估價、打樣事宜。"] }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

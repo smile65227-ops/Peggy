@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #F7F2E7; -webkit-font-smoothing: antialiased; }
+  a { color: #1E1810; text-decoration: none; }
+  a:hover { color: #C4552F; }
+  ::selection { background: #C4552F; color: #F7F2E7; }
+</style>
+</helmet>
+<div style="--accent: {{ accent }}; --cols: {{ cols }}; background: #F7F2E7; color: #1E1810; font-family: 'Noto Sans TC', system-ui, sans-serif; font-weight: 300; min-height: 100vh;">
+
+  <header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 26px 56px; border-bottom: 1px solid #E4D9C6; position: sticky; top: 0; background: rgba(247,242,231,0.93); backdrop-filter: blur(8px); z-index: 5;">
+    <a href="#top" style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 19px;">林知言</a>
+    <nav style="display: flex; gap: 32px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;">
+      <a href="#work" style-hover="color: var(--accent, #C4552F)">Work</a>
+      <a href="#about" style-hover="color: var(--accent, #C4552F)">About</a>
+      <a href="#contact" style-hover="color: var(--accent, #C4552F)">Contact</a>
+    </nav>
+  </header>
+
+  <section id="top" style="padding: 116px 56px 92px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.8fr); gap: 64px; align-items: end; border-bottom: 1px solid #E4D9C6;">
+    <div style="display: flex; flex-direction: column; gap: 26px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--accent, #C4552F); text-transform: uppercase;">Product &amp; Brand Designer — Taipei</div>
+      <h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 74px; line-height: 1.14; letter-spacing: -0.01em; text-wrap: pretty;">把複雜的產品<br />整理成清楚的一件事。</h1>
+      <p style="margin: 0; max-width: 44ch; font-size: 17px; line-height: 1.85; color: #6B6153; text-wrap: pretty;">八年來在金融、醫療與工具型軟體之間工作，負責介面系統、品牌識別，以及從研究到交付的整段流程。這裡放的是四個能說明我怎麼思考的案子。</p>
+    </div>
+    <dl style="margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 24px; font-size: 14px; border-top: 1px solid #E4D9C6; padding-top: 26px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #9C907C; text-transform: uppercase;">Experience</dt>
+        <dd style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: 26px;">8 年</dd>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #9C907C; text-transform: uppercase;">Shipped</dt>
+        <dd style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: 26px;">31 個專案</dd>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #9C907C; text-transform: uppercase;">Focus</dt>
+        <dd style="margin: 0; line-height: 1.7;">設計系統<br />介面與流程</dd>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #9C907C; text-transform: uppercase;">Status</dt>
+        <dd style="margin: 0; line-height: 1.7;">2026 Q4<br />可接案</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="work" style="padding: 68px 56px 92px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 26px;">
+      <h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9C907C;">Selected Work</h2>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #9C907C;">04</span>
+    </div>
+    <div style="display: grid; grid-template-columns: var(--cols, repeat(2, minmax(0, 1fr))); gap: 54px 40px;">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+        <article style="display: flex; flex-direction: column; gap: 18px;">
+          <a href="#work" style="aspect-ratio: 4 / 3; background-color: #EDE4D3; background-image: repeating-linear-gradient(45deg, rgba(30,24,16,0.06) 0 1px, transparent 1px 9px); display: flex; align-items: flex-end; padding: 20px; box-sizing: border-box;" style-hover="background-color: #E6DAC4">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #9C907C;">{{ p.slot }}</span>
+          </a>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+              <h3 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 27px;">{{ p.title }}</h3>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9C907C;">{{ p.year }}</span>
+            </div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.8; color: #6B6153; max-width: 52ch;">{{ p.blurb }}</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; padding-top: 6px;">
+              <sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="2">
+                <span style="border: 1px solid #E4D9C6; padding: 4px 9px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #9C907C;">{{ t }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="about" style="padding: 84px 56px; border-top: 1px solid #E4D9C6; display: grid; grid-template-columns: minmax(0, 0.4fr) minmax(0, 1fr); gap: 56px;">
+    <h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9C907C;">About</h2>
+    <div style="display: flex; flex-direction: column; gap: 38px; max-width: 62ch;">
+      <p style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: 27px; line-height: 1.65; text-wrap: pretty;">我的工作大部分不是畫畫面，而是先弄清楚問題該不該被解決，再決定用什麼形式解決它。</p>
+      <p style="margin: 0; font-size: 16px; line-height: 1.9; color: #6B6153;">現任職於一家做財務工具的公司，帶三位設計師。代理商時期做過品牌與包裝，這段經歷讓我習慣同時處理系統與細節。教過兩屆設計系的介面課程，也持續在寫關於設計流程的筆記。</p>
+      <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: #E4D9C6; border: 1px solid #E4D9C6;">
+        <li style="background: #F7F2E7; padding: 20px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9C907C;">01</span><span style="font-size: 15px;">產品設計與流程</span></li>
+        <li style="background: #F7F2E7; padding: 20px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9C907C;">02</span><span style="font-size: 15px;">設計系統建置</span></li>
+        <li style="background: #F7F2E7; padding: 20px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9C907C;">03</span><span style="font-size: 15px;">品牌識別與應用</span></li>
+        <li style="background: #F7F2E7; padding: 20px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9C907C;">04</span><span style="font-size: 15px;">使用者研究與測試</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer id="contact" style="padding: 84px 56px 52px; border-top: 1px solid #E4D9C6; display: flex; flex-direction: column; gap: 44px;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9C907C;">Contact</span>
+      <a href="#contact" style="font-family: 'Noto Serif TC', serif; font-size: 44px; line-height: 1.25; border-bottom: 1px solid #E4D9C6; padding-bottom: 10px;" style-hover="color: var(--accent, #C4552F); border-bottom-color: var(--accent, #C4552F)">hello@linzhiyan.design</a>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #9C907C;">
+      <div style="display: flex; gap: 22px;">
+        <a href="#contact" style-hover="color: var(--accent, #C4552F)">Instagram</a>
+        <a href="#contact" style-hover="color: var(--accent, #C4552F)">LinkedIn</a>
+        <a href="#contact" style-hover="color: var(--accent, #C4552F)">Read.cv</a>
+      </div>
+      <span>© 2026 林知言</span>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C4552F&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#C4552F&quot;,&quot;#B87333&quot;,&quot;#A8562B&quot;,&quot;#8C6A3F&quot;],&quot;section&quot;:&quot;外觀&quot;},&quot;worksPerRow&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:2,&quot;min&quot;:1,&quot;max&quot;:3,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;版面&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const per = this.props.worksPerRow ?? 2;
+    return {
+      accent: this.props.accentColor ?? "#C4552F",
+      cols: `repeat(${per}, minmax(0, 1fr))`,
+      projects: [
+        { title: "Ledger 財務儀表板", year: "2025", slot: "product shot — 儀表板總覽", blurb: "重新設計中小企業的對帳流程，把七個步驟收成兩個畫面。上線後客服詢問量下降 41%。", tags: ["UX 研究", "介面設計", "設計系統"] },
+        { title: "昀和診所品牌識別", year: "2025", slot: "brand sheet — 識別應用", blurb: "從命名、標誌到院內指標系統，一套能被護理人員自己延伸使用的規範。", tags: ["品牌識別", "指標系統"] },
+        { title: "Tide 通勤票務 App", year: "2024", slot: "app screens — 三支手機畫面", blurb: "單手可完成的購票流程，並處理離線進站與尖峰時段的錯誤狀態。", tags: ["行動介面", "原型測試"] },
+        { title: "Northsea 設計系統", year: "2023", slot: "system doc — 元件庫一覽", blurb: "為 12 人的工程團隊建立元件庫與文件，讓新頁面的交付時間從兩週縮到三天。", tags: ["設計系統", "文件"] }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
